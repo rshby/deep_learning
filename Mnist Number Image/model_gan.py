@@ -30,7 +30,7 @@ class Generator(nn.Module):
         self.z_dim = z_dim
         self.fc = nn.Sequential(
             linear_block(z_dim, 128, activation="lrelu"),
-            linear_block(126, 256, activation="lrelu", batch_norm=True),
+            linear_block(128, 256, activation="lrelu", batch_norm=True),
             linear_block(256, 512, activation="lrelu", batch_norm=True),
             linear_block(512, 1024, activation="lrelu", batch_norm=True),
             linear_block(1024, 784, activation="tanh")
