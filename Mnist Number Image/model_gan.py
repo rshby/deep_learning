@@ -8,11 +8,15 @@ class Discriminator(nn.Module):
         super().__init__()
         self.fc = nn.Sequential(
             nn.Flatten(),
-            linear_block(784, 512, activation="lrelu"),
-            linear_block(512, 256, activation="lrelu"),
-            linear_block(256, 128, activation="lrelu"),
-            linear_block(128, 1, activation='sigmoid')
-        )
+            nn.Linear(784, 512),
+            nn.LeakyReLU(),
+            nn.Linear(512, 256),
+            nn.LeakyReLU(),
+            nn.Linear(256, 128),
+            nn.LeakyReLU(),
+            nn.Linear(128, 1),
+            nn.Sigmoid()
+            )
 
     def forward(self, x):
         return self.fc(x)
