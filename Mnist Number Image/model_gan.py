@@ -44,7 +44,7 @@ class Generator(nn.Module):
         return self.fc(z)
 
 
-# Buat class untuk model Generator
+# Buat class untuk model Generator Experiment
 class Generator_experiment(nn.Module):
     def __init__(self, z_dim):
         super().__init__()
