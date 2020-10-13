@@ -3,6 +3,7 @@ from torch import nn
 from jcopdl.layers import linear_block
 
 
+# Buat claass untuk model Descriminator
 class Discriminator(nn.Module):
     def __init__(self):
         super().__init__()
@@ -22,6 +23,7 @@ class Discriminator(nn.Module):
         return self.fc(x)
 
 
+# Buat class untuk model Generator
 class Generator(nn.Module):
     def __init__(self, z_dim):
         super().__init__()
