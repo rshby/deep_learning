@@ -42,3 +42,32 @@ class Generator(nn.Module):
     def generate(self, n, device):
         z = torch.randn((n, self.z_dim), device=device)
         return self.fc(z)
+
+
+# Buat class untuk model Generator
+class Generator_experiment(nn.Module):
+    def __init__(self, z_dim):
+        super().__init__()
+        self.z_dim = z_dim
+        self.fc = nn.Sequential(
+            nn.Linear(z_dim, 128),
+            nn.LeakyReLU(),
+            nn.Linear(128, 256),
+            nn.BatchNorm1d(256), ## normalization
+            nn.LeakyReLU(),
+            nn.Linear(256, 512),
+            nn.BatchNorm1d(512), ## normalization
+            nn.LeakyReLU(),
+            nn.Linear(512, 1024),
+            nn.BatchNorm1d(1024), ## normalization
+            nn.LeakyReLU(),
+            nn.Linear(1024, 784),
+            nn.Tanh()
+            )
+
+    def forward(self, x):
+        return self.fc(x)
+
+    def generate(self, n, device):
+        z = torch.randn((n, self.z_dim), device=device)
+        return self.fc(z)
