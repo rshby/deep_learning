@@ -40,8 +40,8 @@ class Generator(nn.Module):
         return self.fc(x)
 
     def generate(self, n, device):
-        z = torch.randn((n, self.z_dim), device=device)
-        return self.fc(z)
+        fake_image = torch.randn((n, self.z_dim), device=device)
+        return self.fc(fake_image)
 
 
 # Buat class untuk model Generator Experiment
