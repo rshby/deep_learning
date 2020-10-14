@@ -13,7 +13,7 @@ class Discriminator(nn.Module):
         super().__init__()
         self.fc = nn.Sequential(
             nn.Flatten(),
-            nn.Linear(22500, 1024),
+            nn.Linear(67500, 1024),
             nn.LeakyReLU(),
             nn.Linear(1024, 512),
             nn.LeakyReLU(),
@@ -53,7 +53,7 @@ class Generator(nn.Module):
             nn.Linear(4096, 16384),
             nn.BatchNorm1d(16384),
             nn.LeakyReLU(),
-            nn.Linear(16384, 22500),
+            nn.Linear(16384, 67500),
             nn.Tanh()
             )
         
