@@ -33,4 +33,9 @@ class Discriminator(nn.Module):
     
     
 class Generator(nn.Module):
-    
+    def __init__(self, z_dimenssion):
+        super().__init__()
+        self.z_dimenssion = z_dimenssion
+        self.fc = nn.Sequential(
+            nn.Linear(z_dimenssion, out_features)
+            )
